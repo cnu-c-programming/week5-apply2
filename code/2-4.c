@@ -1,16 +1,25 @@
 #include <stdio.h>
 
-void read_only(int *arr, int size) {
-    //arr[0] = 999;
+long my_strol(char *str, char **endptr) {
+    long res = 0;
 
-    for (int i = 0; i < size; i++)
+    while (*str >= '0' && *str <= '9' )
     {
-        printf("%d\n", *(arr + i));
+        res = res*10 + *str - '0';
+        *str++;
     }
+
+    *endptr = str;
+
+    return res;
 }
 
 int main() {
-    int nums [] = {10, 20, 30, 40, 50};
-    read_only(nums, 5);
+    char str[] = "2026hello";
+    char *end;
+
+    long val = my_strol(str, &end);
+
+    printf("%ld %s\n", val, end);
     return 0;
 } 
