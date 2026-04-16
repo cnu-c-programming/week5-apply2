@@ -6,7 +6,7 @@ int main() {
 
     printf("%d\n", x);
 
-    int* ptr = &x;
+    int *const ptr = &x;
 
     *ptr = y;
 
